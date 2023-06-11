@@ -17,7 +17,10 @@ public class AlumnoEntity {
     private String nombre;
     private String apellido;
     private int edad;
+    private int calificacion;
+    private boolean adeuraMaterias;
     private LocalDate fechaIngreso;
+    private boolean abono;
     private String cursoAsociado;
 
 

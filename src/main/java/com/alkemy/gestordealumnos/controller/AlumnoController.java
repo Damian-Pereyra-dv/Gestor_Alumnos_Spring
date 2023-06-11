@@ -31,6 +31,17 @@ public class AlumnoController {
         return alumnoService.getById(id);
     }
 
+    @GetMapping("/deudores")
+    public List<String> abonaron() {
+        return alumnoService.getAbono();
+    }
+
+    @GetMapping("/nota_mayor")
+    public String getNotaMayor() {
+        return alumnoService.getAlumnoNotaMasAlta();
+    }
+
+
     @PostMapping("/add")
     public List<AlumnoEntity> saveAlumno(@RequestBody AlumnoEntity alumno) {
         return alumnoService.saveAlumno(alumno);
@@ -38,13 +49,15 @@ public class AlumnoController {
 
 
     @DeleteMapping("/{id}")
-    public List<AlumnoEntity> deleteByPosition(@PathVariable int id){
+    public List<AlumnoEntity> deleteByPosition(@PathVariable int id) {
         return alumnoService.delete(id);
     }
 
     @PutMapping("/{id}")
+
     public List<AlumnoEntity> update(@PathVariable int id, @RequestBody AlumnoEntity alumno) throws Exception {
-        return alumnoService.update(id, alumno); }
+        return alumnoService.update(id, alumno);
+    }
 
 
     @ExceptionHandler(NoEncontradoException.class)

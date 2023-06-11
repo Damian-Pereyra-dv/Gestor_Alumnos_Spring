@@ -8,14 +8,19 @@ import java.util.List;
 @Repository
 public interface AlumnoServiceImpl {
 
-    List<AlumnoEntity>getAll();
+    List<AlumnoEntity> getAll();
 
-    AlumnoEntity getById (int id) throws Exception;
+    AlumnoEntity getById(int id) throws Exception;
 
-    List<AlumnoEntity> saveAlumno (AlumnoEntity a);
+    List<AlumnoEntity> saveAlumno(AlumnoEntity a);
 
     List<AlumnoEntity> delete(int id);
 
     List<AlumnoEntity> update(int id, AlumnoEntity alumno) throws Exception;
+
+    List<String> getAbono();
+
+    String getAlumnoNotaMasAlta();
+
 
 }
