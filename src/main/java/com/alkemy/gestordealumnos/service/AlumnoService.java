@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+import java.util.Objects;
 
 
 @Service
@@ -21,11 +21,10 @@ public class AlumnoService implements AlumnoServiceImpl {
 
 
 
-
-   public AlumnoService(AlumnoRepository alumnoRepository){
-       this.alumnoRepository = alumnoRepository;
-       alumnoRepository.crearAlumnos();
-   }
+    public AlumnoService(AlumnoRepository alumnoRepository) {
+        this.alumnoRepository = alumnoRepository;
+        alumnoRepository.crearAlumnos();
+    }
 
     @Override
     public List<AlumnoEntity> getAll() {
@@ -35,7 +34,7 @@ public class AlumnoService implements AlumnoServiceImpl {
     @Override
     public AlumnoEntity getById(int id) throws Exception {
         AlumnoEntity alumnoEntity = alumnoRepository.alumnos.stream().filter(alumno -> alumno.getId() == id).findFirst().orElse(null);
-        if(alumnoEntity==null) {
+        if (alumnoEntity == null) {
             throw new NoEncontradoException(ErrorMensaje.ALUMNO_NO_ENCONTRADO);
         }
         return alumnoEntity;
@@ -46,6 +45,26 @@ public class AlumnoService implements AlumnoServiceImpl {
         (alumnoRepository.alumnos).add(a);
 
         return alumnoRepository.alumnos;
+    }
+
+    @Override
+    public List<AlumnoEntity> delete(int id) {
+        (alumnoRepository.alumnos).removeIf(alumno -> alumno.getId() == id);
+        return alumnoRepository.alumnos;
+    }
+
+    @Override
+    public List<AlumnoEntity> update(int id, AlumnoEntity alumno) throws Exception {
+
+        AlumnoEntity alumnoViejo = (alumnoRepository.alumnos).stream().filter(alum-> alum.getId() == id).findFirst().orElse(null);
+        if (Objects.isNull(alumnoViejo)) {
+            throw new NoEncontradoException(ErrorMensaje.ALUMNO_NO_ENCONTRADO);
+        }
+
+        (alumnoRepository.alumnos).remove(alumnoViejo);
+        alumno.setId(id);
+        (alumnoRepository.alumnos).add(alumno);
+        return (alumnoRepository.alumnos);
     }
 
 

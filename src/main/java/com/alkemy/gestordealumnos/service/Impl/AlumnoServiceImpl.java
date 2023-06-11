@@ -14,5 +14,8 @@ public interface AlumnoServiceImpl {
 
     List<AlumnoEntity> saveAlumno (AlumnoEntity a);
 
+    List<AlumnoEntity> delete(int id);
+
+    List<AlumnoEntity> update(int id, AlumnoEntity alumno) throws Exception;
 
 }

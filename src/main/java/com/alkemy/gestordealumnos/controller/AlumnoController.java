@@ -37,6 +37,16 @@ public class AlumnoController {
     }
 
 
+    @DeleteMapping("/{id}")
+    public List<AlumnoEntity> deleteByPosition(@PathVariable int id){
+        return alumnoService.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public List<AlumnoEntity> update(@PathVariable int id, @RequestBody AlumnoEntity alumno) throws Exception {
+        return alumnoService.update(id, alumno); }
+
+
     @ExceptionHandler(NoEncontradoException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Map<String, String> handleNoEncontradoException(NoEncontradoException ex) {
@@ -44,6 +54,8 @@ public class AlumnoController {
         errorResponse.put("mensaje", ex.getMessage());
         return errorResponse;
     }
+
+
 }
 
 
