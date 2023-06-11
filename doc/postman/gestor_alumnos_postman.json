@@ -1,0 +1,46 @@
+ {
+  "info": {
+    "_postman_id": "20774953-66591241-005f-4477-8c2d-21730fd1faf4",
+    "name": "Gestor_de_alumnos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "alumnos",
+      "item": [
+        {
+          "name": "/alumnos",
+          "request": {
+            "method" :"GET",
+            "header" : [],
+            "body":{
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": \"nombre\",\r\n  \"apellido\": \"edad\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/alumnos",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "alumnos"
+              ]
+            }
+          },
+          "response": []
+
+
+          }
+
+      ]
+    }
+  ]
+}
+
