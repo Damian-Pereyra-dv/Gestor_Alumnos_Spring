@@ -1,14 +1,20 @@
 package com.alkemy.gestordealumnos.repository;
 
 import com.alkemy.gestordealumnos.entities.AlumnoEntity;
+import com.alkemy.gestordealumnos.entities.CursoEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
-@Component
+@Repository
 public class AlumnoRepository {
+
+
     public  List<AlumnoEntity> alumnos = new ArrayList<>();
 
     public void crearAlumnos() {// Crear alumnos con fechas específicas
@@ -24,7 +30,11 @@ public class AlumnoRepository {
         alumnos.add(new AlumnoEntity(10, "Mónica", "Rojas", 21, 5,false, LocalDate.of(2022, 10, 25), true, "Java"));
 
 
+
+
     }
+
+
 
 }
 

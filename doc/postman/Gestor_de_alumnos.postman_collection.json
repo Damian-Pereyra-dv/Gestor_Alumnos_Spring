@@ -8,161 +8,179 @@
 	},
 	"item": [
 		{
-			"name": "Todos los alumnos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/alumnos",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"alumnos"
-					]
+			"name": "Cursos",
+			"item": [
+				{
+					"name": "Alumnos por curso",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Alumnos por ID",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/alumnos/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"alumnos",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Aliumno con mayor nota",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/alumnos/nota_mayor",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"alumnos",
-						"nota_mayor"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Alumnos deudores",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/alumnos/deudores",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"alumnos",
-						"deudores"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Agregar alumno",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": " {\r\n        \"id\": 11,\r\n        \"nombre\": \"\",\r\n        \"apellido\": \"\",\r\n        \"edad\": 0,\r\n        \"calificacion\": 0,\r\n        \"adeuraMaterias\": \"boolean\",\r\n        \"fechaIngreso\": \"AAAA-MM-DD\",\r\n        \"abono\": \"boolean\",\r\n        \"cursoAsociado\": \"\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Alumnos",
+			"item": [
+				{
+					"name": "Todos los alumnos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/alumnos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alumnos"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/api/alumnos/add",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"alumnos",
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Eliminar Alumno",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/alumnos/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"alumnos",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Actualizar Datos Alumno",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\r\n        \"id\": 4,\r\n        \"nombre\": \"Laura\",\r\n        \"apellido\": \"Rodríguez\",\r\n        \"edad\": 21,\r\n        \"calificacion\": 3,\r\n        \"adeuraMaterias\": false,\r\n        \"fechaIngreso\": \"2022-04-05\",\r\n        \"abono\": false,\r\n        \"cursoAsociado\": \"Python\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Alumnos por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/alumnos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alumnos",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/api/alumnos/4",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"alumnos",
-						"4"
-					]
+				{
+					"name": "Alumno con mayor nota",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/alumnos/nota_mayor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alumnos",
+								"nota_mayor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alumnos deudores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/alumnos/deudores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alumnos",
+								"deudores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar alumno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 11,\r\n        \"nombre\": \"\",\r\n        \"apellido\": \"\",\r\n        \"edad\": 0,\r\n        \"calificacion\": 0,\r\n        \"adeuraMaterias\": \"boolean\",\r\n        \"fechaIngreso\": \"AAAA-MM-DD\",\r\n        \"abono\": \"boolean\",\r\n        \"cursoAsociado\": \"\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/alumnos/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alumnos",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Alumno por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/alumnos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alumnos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Alumno por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n        \"id\": 4,\r\n        \"nombre\": \"Laura\",\r\n        \"apellido\": \"Rodríguez\",\r\n        \"edad\": 21,\r\n        \"calificacion\": 3,\r\n        \"adeuraMaterias\": false,\r\n        \"fechaIngreso\": \"2022-04-05\",\r\n        \"abono\": false,\r\n        \"cursoAsociado\": \"Python\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/alumnos/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alumnos",
+								"4"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

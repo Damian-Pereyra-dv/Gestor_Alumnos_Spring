@@ -8,9 +8,7 @@ import com.alkemy.gestordealumnos.service.Impl.AlumnoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -20,15 +18,18 @@ public class AlumnoService implements AlumnoServiceImpl {
     @Autowired
     private final AlumnoRepository alumnoRepository;
 
+    private final List<AlumnoEntity> alumnos;
+
 
     public AlumnoService(AlumnoRepository alumnoRepository) {
         this.alumnoRepository = alumnoRepository;
+        this.alumnos = alumnoRepository.alumnos;
         alumnoRepository.crearAlumnos();
     }
 
     @Override
     public List<AlumnoEntity> getAll() {
-        return alumnoRepository.alumnos;
+        return alumnos;
     }
 
     @Override
@@ -39,34 +40,36 @@ public class AlumnoService implements AlumnoServiceImpl {
     @Override
     public List<AlumnoEntity> saveAlumno(AlumnoEntity a) {
         alumnoRepository.alumnos.add(a);
-        return alumnoRepository.alumnos;
+        return alumnos;
     }
 
     @Override
     public List<AlumnoEntity> delete(int id) {
         alumnoRepository.alumnos.removeIf(alumno -> alumno.getId() == id);
-        return alumnoRepository.alumnos;
+        return alumnos;
     }
 
     @Override
     public List<AlumnoEntity> update(int id, AlumnoEntity alumno) {
         AlumnoEntity alumnoViejo = buscarAlumnoPorId(id);
-        int index = alumnoRepository.alumnos.indexOf(alumnoViejo);
+        int index = alumnos.indexOf(alumnoViejo);
         alumno.setId(id);
         alumnoRepository.alumnos.set(index, alumno);
-        return alumnoRepository.alumnos;
+        return alumnos;
     }
 
     @Override
     public String getAlumnoNotaMasAlta() {
-        List<AlumnoEntity> alumnos = alumnoRepository.alumnos;
+        List<AlumnoEntity> alumnoNotaAlta = alumnos;
 
-        int maxNota = alumnos.stream()
+        int maxNota = alumnos
+                .stream()
                 .mapToInt(AlumnoEntity::getCalificacion)
                 .max()
                 .orElse(0);
 
-        List<String> nombresApellidos = alumnos.stream()
+        List<String> nombresApellidos = alumnos
+                .stream()
                 .filter(alumno -> alumno.getCalificacion() == maxNota)
                 .map(alumno -> alumno.getNombre() + " " + alumno.getApellido())
                 .collect(Collectors.toList());
@@ -80,14 +83,16 @@ public class AlumnoService implements AlumnoServiceImpl {
 
     @Override
     public List<String> getAbono() {
-        return alumnoRepository.alumnos.stream()
+        return alumnos
+                .stream()
                 .filter(alumno -> !alumno.isAbono())
                 .map(alumno -> alumno.getId() + " " + alumno.getNombre() + " " + alumno.getApellido())
                 .collect(Collectors.toList());
     }
 
     private AlumnoEntity buscarAlumnoPorId(int id) {
-        return alumnoRepository.alumnos.stream()
+        return alumnos
+                .stream()
                 .filter(alumno -> alumno.getId() == id)
                 .findFirst()
                 .orElseThrow(() -> new NoEncontradoException(ErrorMensaje.ALUMNO_NO_ENCONTRADO));

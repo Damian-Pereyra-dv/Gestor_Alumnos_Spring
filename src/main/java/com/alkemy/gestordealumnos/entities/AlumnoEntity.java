@@ -24,4 +24,7 @@ public class AlumnoEntity {
     private String cursoAsociado;
 
 
+    public AlumnoEntity() {
+
+    }
 }
