@@ -38,7 +38,7 @@ public class StudentController {
     }
 
 
-    @PostMapping("/{studentId}/add-course/{courseId}")
+    @PostMapping("/{studentId}/courses/{courseId}")
     public ResponseEntity<StudentEntity> addCourseToStudent(
             @PathVariable int studentId,
             @PathVariable int courseId
@@ -64,7 +64,7 @@ public class StudentController {
         return studentService.delete(id);
     }
 
-    @DeleteMapping("/{studentId}/delete-course/{courseId}")
+    @DeleteMapping("/{studentId}/courses/{courseId}")
     public List<StudentEntity> deleteCourseFromStudent(
             @PathVariable int studentId,
             @PathVariable int courseId
