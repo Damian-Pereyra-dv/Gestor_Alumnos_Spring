@@ -8,19 +8,6 @@
 	},
 	"item": [
 		{
-			"name": "Cursos",
-			"item": [
-				{
-					"name": "Alumnos por curso",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Alumnos",
 			"item": [
 				{
@@ -57,46 +44,6 @@
 								"api",
 								"alumnos",
 								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Alumno con mayor nota",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/api/alumnos/nota_mayor",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"alumnos",
-								"nota_mayor"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Alumnos deudores",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/api/alumnos/deudores",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"alumnos",
-								"deudores"
 							]
 						}
 					},
@@ -152,13 +99,56 @@
 					"response": []
 				},
 				{
-					"name": "Actualizar Alumno por ID",
+					"name": "Agregar curso al alumno",
 					"request": {
-						"method": "PUT",
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cursos",
+			"item": [
+				{
+					"name": "Todos los cursos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Quitar curso del alumno",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/students/1/delete-course/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students",
+								"1",
+								"delete-course",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar curso",
+					"request": {
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "  {\r\n        \"id\": 4,\r\n        \"nombre\": \"Laura\",\r\n        \"apellido\": \"Rodríguez\",\r\n        \"edad\": 21,\r\n        \"calificacion\": 3,\r\n        \"adeuraMaterias\": false,\r\n        \"fechaIngreso\": \"2022-04-05\",\r\n        \"abono\": false,\r\n        \"cursoAsociado\": \"Python\"\r\n    }",
+							"raw": "{\r\n  \r\n  \"name\": \"java\",\r\n  \"description\": \"Curso de java FullStack\",\r\n  \"monthsDuration\": 30\r\n  \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -166,17 +156,25 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/alumnos/4",
+							"raw": "localhost:8080/api/courses/add",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"api",
-								"alumnos",
-								"4"
+								"courses",
+								"add"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
